@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng Quay Lì Xì Tết</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Nền sao và hoa rơi -->
+    <div class="bg-stars" id="bgStars"></div>
+
+    <!-- Đèn lồng -->
+    <div class="lantern lantern-left">🏮</div>
+    <div class="lantern lantern-right">🏮</div>
+
+    <!-- Tiêu đề -->
+    <div class="page-header">
+        <h1>🧧 Vòng Quay Lì Xì Tết 🧧</h1>
+        <p class="subtitle">✨ Chào mừng Năm Mới 2026 · Bính Ngọ ✨</p>
+    </div>
+
+    <div class="main-container">
+        <div class="wheel-wrapper">
+            <div class="marker"></div>
+            <div id="wheel"></div>
+            <div class="center-circle">💰</div>
+        </div>
+
+        <div class="result-box" id="resultDisplay">Chúc bạn may mắn!</div>
+
+        <button id="spinButton">QUAY NGAY</button>
+    </div>
+    
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2 class="popup-title">🎊 CHÚC MỪNG NĂM MỚI! 🎊</h2>
+            <p class="popup-subtitle">Bạn đã nhận được lì xì:</p>
+            <div class="popup-prize" id="popupResult"></div>
+            <p class="popup-footer">🐴 Năm Bính Ngọ · 2026 🐴</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
