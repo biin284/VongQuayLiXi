@@ -86,15 +86,29 @@ createFallingPetals();
                 gradientString += ', ';
             }
             
-            // 2. Tạo và thêm chữ lên vòng quay (ĐÃ SỬA)
+            // 2. Tạo và thêm chữ lên vòng quay
             const textElement = document.createElement('div');
             textElement.className = 'wheel-text';
-            
+
             // Transform 0 độ theo mặc định bắt đầu ở góc 3 giờ.
             // Vì conic-gradient bắt đầu ở góc 12 giờ nên phải trừ đi 90 độ.
             const rotation = currentAngle + (segmentAngle / 2) - 90;
+            const normalizedRot = ((rotation % 360) + 360) % 360;
+
+            // Các segment nằm ở nửa TRÁI của vòng quay (rotation 90°–270°)
+            // sẽ bị ngược chữ nếu dùng cách thông thường.
+            // Giải pháp: đặt div từ cạnh ngoài vào tâm, xoay quanh cạnh phải (= tâm vòng).
+            const needsFlip = normalizedRot > 90 && normalizedRot < 270;
+
+            if (needsFlip) {
+                textElement.style.left = '0px';
+                textElement.style.transformOrigin = 'right center';
+                textElement.style.justifyContent = 'flex-start';
+                textElement.style.paddingRight = '0';
+                textElement.style.paddingLeft = '12px';
+            }
+
             textElement.style.transform = `rotate(${rotation}deg)`;
-            
             textElement.innerText = segment.text;
             wheel.appendChild(textElement);
 
